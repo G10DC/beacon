@@ -23,3 +23,13 @@ Or parse a custom commit message list:
 ```bash
 node C:/Users/GdC/.gemini/config/skills/beacon/lib/beacon.js --commits "feat: add OAuth login\nfix: handle null token"
 ```
+
+
+---
+
+## ⚡ Spark Breakthrough Enhancement
+
+- **Feature**: **AI Executive Release Digest**
+- **Description**: Synthesizes git commit histories into executive markdown & video-ready release notes.
+- **Synergy**: Integrated with `yt-digest` (digest layout) & `spark` (enhancements).
+- **Framework**: Applied via the `spark` 4-Lens Lateral Ideation Engine.
