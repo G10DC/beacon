@@ -17,11 +17,11 @@ Automated Changelog & Release Notes Generator. Beacon parses Conventional Commit
 
 Generate release notes from recent git commits:
 ```bash
-node C:/Users/GdC/.gemini/config/skills/beacon/lib/beacon.js --version "v1.1.0"
+node lib/beacon.js --version "v1.1.0"
 ```
 Or parse a custom commit message list:
 ```bash
-node C:/Users/GdC/.gemini/config/skills/beacon/lib/beacon.js --commits "feat: add OAuth login\nfix: handle null token"
+node lib/beacon.js --commits "feat: add OAuth login\nfix: handle null token"
 ```
 
 
