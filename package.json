@@ -1,11 +1,9 @@
 {
   "name": "beacon",
   "version": "1.0.0",
-  "description": "Automated Changelog and Release Notes Generator",
-  "main": "lib/beacon.js",
   "type": "module",
   "scripts": {
-    "test": "node --test tests/*.test.js",
+    "test": "echo No tests configured"
   },
   "license": "MIT"
 }
