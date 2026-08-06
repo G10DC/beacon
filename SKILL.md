@@ -1,6 +1,12 @@
 ---
 name: beacon
-description: Automated Changelog and Release Notes Generator. Parses Conventional Commit histories and git tags to generate structured, human-readable release notes, Markdown changelogs, and version bump suggestions.
+description: >-
+  Automated changelog and release notes generator. Parses Conventional Commit
+  histories and git tags to generate structured, human-readable release notes,
+  Markdown changelogs, and version bump suggestions. Use when preparing a
+  release and you need a changelog derived from commit history. Never use for
+  arbitrary prose generation; never use as a substitute for manual release
+  planning.
 ---
 
 # 📡 Beacon
