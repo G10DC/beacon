@@ -1,5 +1,6 @@
 ---
 name: beacon
+status: implemented
 description: >-
   Automated changelog and release notes generator. Parses Conventional Commit
   histories and git tags to generate structured, human-readable release notes,
@@ -21,31 +22,34 @@ Automated Changelog & Release Notes Generator. Beacon parses Conventional Commit
 
 ## Execution Guide
 
-Generate release notes from recent git commits:
+Generate release notes from the last 50 commits:
 ```bash
 node lib/beacon.js --version "v1.1.0"
+```
+Or a real tag range, e.g. everything since the last release:
+```bash
+node lib/beacon.js --version "v1.1.0" --range "v1.0.0..HEAD"
 ```
 Or parse a custom commit message list:
 ```bash
 node lib/beacon.js --commits "feat: add OAuth login\nfix: handle null token"
 ```
 
-
----
-
-## Spark Breakthrough Enhancement
-
-- **Feature**: **AI Executive Release Digest**
-- **Description**: Synthesizes git commit histories into executive markdown & video-ready release notes.
-- **Synergy**: Integrated with `yt-digest` (digest layout) & `spark` (enhancements).
-- **Framework**: Applied via the `spark` 4-Lens Lateral Ideation Engine.
-
+**Honest scope**: without `--range` or `--commits`, it defaults to the last 50 commits
+(`--count N` overrides the number). Category detection is Conventional-Commits prefix matching
+only (`feat:`, `fix:`, `perf:`, `refactor:`, `docs:`, `BREAKING CHANGE`/`!:`) — commits that
+don't follow that convention land in an uncategorized bucket. `git` is invoked via `execFileSync`
+with an argument array (no shell), so `--range` cannot be used for command injection even with
+untrusted input.
 
 ## When to use
 
-- Primary domain workflow execution as specified in frontmatter description.
-
+- Drafting a changelog/release-notes entry from recent Conventional-Commit history, either the
+  last N commits or a specific tag range, as a starting draft you'll review before publishing.
 
 ## When NOT to use
 
-- Tasks outside declared skill scope or handled by specialized sibling skills.
+- **Commits don't follow Conventional Commits** — everything lands in the uncategorized bucket
+  and the semver-bump suggestion degrades to a default of `PATCH`; the tool adds little value here.
+- **As a substitute for actually deciding what belongs in the release** — treat the output as a
+  draft grouped by commit prefix, not an editorially reviewed changelog.
