@@ -70,6 +70,13 @@ describe('agreement with the commit-message validator', () => {
     assert.deepStrictEqual(res.categories.other, ['chore(deps): bump', 'ci: add a workflow']);
   });
 
+  it('renders what it could not categorise instead of discarding it', () => {
+    const res = generator.parseCommits(['feat: a feature', 'chore(deps): bump', 'a subject in no known format']);
+    const md = generator.generateChangelog('1.0.0', res);
+    assert.match(md, /chore\(deps\): bump/);
+    assert.match(md, /a subject in no known format/);
+  });
+
   it('still detects the footer spelling of a breaking change', () => {
     const res = generator.parseCommits(['feat: new auth', 'BREAKING CHANGE: drop v1']);
     assert.strictEqual(res.suggestedBump, 'MAJOR');
